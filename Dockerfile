@@ -1,7 +1,7 @@
 FROM golang:1.6-alpine
 MAINTAINER Alex Peters <info@alexanderpeters.de>
 
-RUN apk update && apk add docker && apk cache clean
+RUN apk update && apk add docker 
 
 # Install Docker binary
 # RUN wget -nv https://get.docker.com/builds/Linux/x86_64/docker-1.5.0 -O /usr/bin/docker && \
@@ -23,7 +23,7 @@ WORKDIR /src
 
 COPY build_environment.sh /
 COPY build.sh /
-COPY .netrc /root/
+RUN echo "machine github.com login $GITHUB_TOKEN" >/root/.netrc
 
 ENV GOMAXPROCS=2
 ENV GORACE="halt_on_error=1"
