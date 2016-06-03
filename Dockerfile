@@ -1,7 +1,7 @@
 FROM golang:1.6-alpine
 MAINTAINER Alex Peters <info@alexanderpeters.de>
 
-RUN apk update && apk add docker bash
+RUN apk update && apk add docker bash gcc
 
 # Install Docker binary
 # RUN wget -nv https://get.docker.com/builds/Linux/x86_64/docker-1.5.0 -O /usr/bin/docker && \
