@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/sh -e
 
 source /build_environment.sh
 
