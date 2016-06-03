@@ -17,15 +17,15 @@ RUN wget https://raw.githubusercontent.com/pote/gpm/v1.3.2/bin/gpm -O /usr/local
   chmod +x /usr/local/bin/gpm
 
 
-VOLUME /src
-WORKDIR /src
-
-
 COPY build_environment.sh /
 COPY build.sh /
 RUN echo "machine github.com login $GITHUB_TOKEN" >/root/.netrc
 
+VOLUME /src
+WORKDIR /src
+
 ENV GOMAXPROCS=2
 ENV GORACE="halt_on_error=1"
 
-ENTRYPOINT ["/build.sh"]
+# ENTRYPOINT ["/build.sh"]
+CMD ["/build.sh"]
